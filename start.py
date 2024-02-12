@@ -1,2 +1,4 @@
-print ("hello fcing world")
-print ("hello again, bitch")
+import numpy
+
+x = 55^2
+print(x)
