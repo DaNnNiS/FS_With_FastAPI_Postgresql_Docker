@@ -1,6 +1,10 @@
 FROM python:3.11
-COPY requirements.txt
+ENV VIRTUAL_ENV "/venv"
+RUN python -m venv $VITTUAL_ENV
+ENV PATH "$VIRTUAL_ENV/bin:$PATH"
 
-RUN pip3.11 install -r requirements.txt
+RUN python -m pip install \
+        numpy \
+        fastapi
 
 CMD [ "python", "./server.py" ]
