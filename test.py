@@ -1,12 +1,15 @@
-import numpy
+from typing import Union
 
-x = 22
-y = 33
+from fastapi import FastAPI
 
-v = x * y
-b = x**y
-n = x^y
+app = FastAPI()
 
-print(v)
-print(b)
-print(n)
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
